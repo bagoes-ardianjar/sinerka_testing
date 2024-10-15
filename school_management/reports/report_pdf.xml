@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <data>
+      <report
+        id="action_report_teacher_student"
+        model="sinerka.teacher"
+        string="Report Guru, Kelas dan Siswa"
+        paperformat="school_management.paperformat_report_a4"
+        name="school_management.report_teacher_student"
+        file="school_management.report_teacher_student"
+        report_type="qweb-html"
+        print_report_name = "Report Guru, Kelas dan Siswa"
+      />
+
+      <report
+          id="action_report_print_sinerka_invoice"
+          model="sinerka.invoice"
+          string="Invoice"
+          paperformat="school_management.paperformat_report_a4"
+          name="school_management.sinerka_invoice_template"
+          file="school_management.sinerka_invoice_template"
+          report_type="qweb-html"
+          print_report_name="'Invoice Siswa - ' + object.student_id.name" />
+   </data>
+</odoo>

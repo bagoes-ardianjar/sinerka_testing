@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="ir_cron_create_monthly_invoices" model="ir.cron">
+            <field name="name">Create Monthly Invoices</field>
+            <field name="model_id" ref="model_sinerka_invoice_scheduler"/>
+            <field name="state">code</field>
+            <field name="code">model.create_monthly_invoices()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">months</field>
+            <field name="nextcall">2024-11-01 00:00:00</field>
+        </record>
+    </data>
+</odoo>

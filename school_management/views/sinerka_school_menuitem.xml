@@ -1,0 +1,42 @@
+<odoo>
+    <menuitem
+        id="parent_sinerka_school_id"
+        name="Modul Sinerka School"
+        web_icon="school_management,static/description/school.png"
+        sequence="10"/>
+        <menuitem
+            id="parent_sinerka_teacher_id"
+            name="Guru"
+            sequence="1"
+            parent="school_management.parent_sinerka_school_id"/>
+            <menuitem
+                id="child_sinerka_teacher_id"
+                name="Informasi Guru"
+                sequence="1"
+                parent="school_management.parent_sinerka_teacher_id"
+                action="school_management.sinerka_teacher_actions_id"/>
+            <menuitem
+                id="menu_teacher_student_report"
+                name="Report Guru, Kelas dan Siswa"
+                sequence="2"
+                parent="school_management.parent_sinerka_teacher_id"
+                action="school_management.action_report_teacher_student"/>
+        <menuitem
+            id="child_sinerka_student_id"
+            name="Siswa"
+            sequence="2"
+            parent="school_management.parent_sinerka_school_id"
+            action="school_management.sinerka_student_actions_id"/>
+        <menuitem
+            id="child_sinerka_class_id"
+            name="Kelas"
+            sequence="3"
+            parent="school_management.parent_sinerka_school_id"
+            action="school_management.sinerka_class_actions_id"/>
+        <menuitem
+            id="child_sinerka_invoice_id"
+            name="Invoice"
+            sequence="3"
+            parent="school_management.parent_sinerka_school_id"
+            action="school_management.sinerka_invoice_actions_id"/>
+</odoo>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="sequence_sinerka_student_id" model="ir.sequence">
+        <field name="name">sequence_sinerka_student_id</field>
+        <field name="code">sinerka.student</field>
+        <field name="prefix">S/%(year)s/%(month)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field eval="True" name="use_date_range"/>
+        <field eval="False" name="company_id"/>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="sequence_sinerka_student_id" model="ir.sequence">
+        <field name="name">sequence_sinerka_student_id</field>
+        <field name="code">sinerka.teacher</field>
+        <field name="prefix">P/%(year)s/%(month)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field eval="True" name="use_date_range"/>
+        <field eval="False" name="company_id"/>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="sequence_sinerka_invoice_id" model="ir.sequence">
+        <field name="name">sequence_sinerka_invoice_id</field>
+        <field name="code">sinerka.invoice</field>
+        <field name="prefix">INV/%(year)s/%(month)s/</field>
+        <field eval="1" name="number_next"/>
+        <field eval="1" name="number_increment"/>
+        <field eval="True" name="use_date_range"/>
+        <field eval="False" name="company_id"/>
+        <field name="padding">4</field>
+    </record>
+</odoo>

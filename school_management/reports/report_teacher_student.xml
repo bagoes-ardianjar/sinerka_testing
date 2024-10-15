@@ -1,0 +1,40 @@
+<odoo>
+    <template id="report_teacher_student">
+        <t t-call="web.html_container">
+            <div class="page">
+                <table style="width: 100%; border-collapse: collapse; border: none;">
+                    <tr>
+                      <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 20px; font-weight: bold; height: 50px;">Daftar Guru, Kelas dan Siswa</th>
+                    </tr>
+                </table>
+                <br/>
+                <table class="table table-bordered" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%; border: 1px solid black;">Guru</th>
+                            <th style="width: 15%; border: 1px solid black;">NIP</th>
+                            <th style="width: 20%; border: 1px solid black;">Kelas</th>
+                            <th style="width: 25%; border: 1px solid black;">Siswa</th>
+                            <th style="width: 20%; border: 1px solid black;">NIS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-foreach="docs" t-as="teacher">
+                            <t t-foreach="teacher_class_lines[teacher.id]" t-as="class_line">
+                                <t t-foreach="teacher_students[teacher.id][class_line.id]" t-as="student">
+                                    <tr>
+                                        <td style="border: 1px solid black;"><t t-esc="teacher.name"/></td>
+                                        <td style="border: 1px solid black;"><t t-esc="teacher.nip"/></td>
+                                        <td style="border: 1px solid black;"><t t-esc="class_line.name"/></td>
+                                        <td style="border: 1px solid black;"><t t-esc="student.name"/></td>
+                                        <td style="border: 1px solid black;"><t t-esc="student.nis"/></td>
+                                    </tr>
+                                </t>
+                            </t>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+        </t>
+    </template>
+</odoo>

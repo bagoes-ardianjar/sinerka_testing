@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="sinerka_teacher_tree_view_id" model="ir.ui.view">
+        <field name="name">sinerka_teacher_tree_view_id</field>
+        <field name="model">sinerka.teacher</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nip"/>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="address"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sinerka_teacher_form_view_id" model="ir.ui.view">
+        <field name="name">sinerka_teacher_form_view_id</field>
+        <field name="model">sinerka.teacher</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="nip" readonly="1"/>
+                                <field name="name"/>
+                                <field name="phone"/>
+                            </group>
+                            <group>
+                                <field name="address"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Data Kelas">
+                                <field name="teacher_line_ids" nolabel="1" options="{'reload_on_button':True}">
+                                    <tree edit="true" editable="bottom" create="true" delete="true">
+                                        <field name="class_id"/>
+                                        <field name="students_count" string="Jumlah Siswa"/>
+                                        <button name="open_student_management_wizard" string="Manage Students" type="object" class="oe_highlight"/>
+                                    </tree>
+                                </field>
+                                <div class="oe_right">
+                                    <label for="total_students" string="Total Semua Siswa" style="font-weight: bold; font-size: 16px;"/>
+                                    <field name="total_students" readonly="1" nolabel="1"/>
+                                </div>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id="sinerka_student_tree_view_id" model="ir.ui.view">
+        <field name="name">sinerka_student_tree_view_id</field>
+        <field name="model">sinerka.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nis"/>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="student_address"/>
+                <field name="is_active" readonly="0"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sinerka_student_form_view_id" model="ir.ui.view">
+        <field name="name">sinerka_student_form_view_id</field>
+        <field name="model">sinerka.student</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="nis" readonly="1"/>
+                                <field name="name"/>
+                                <field name="age"/>
+                            </group>
+                            <group>
+                                <field name="student_address"/>
+                                <field name="is_active" readonly="0"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id="sinerka_class_tree_view_id" model="ir.ui.view">
+        <field name="name">sinerka_class_tree_view_id</field>
+        <field name="model">sinerka.class</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="subject"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sinerka_class_form_view_id" model="ir.ui.view">
+        <field name="name">sinerka_class_form_view_id</field>
+        <field name="model">sinerka.class</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                            </group>
+                            <group>
+                                <field name="subject"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Data Siswa">
+                                <field name="class_line_ids" nolabel="1" options="{'reload_on_button':True}">
+                                    <tree edit="true" editable="bottom" create="true" delete="true">
+                                        <field name="student_id"/>
+                                        <field name="nis"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id="sinerka_teacher_student_wizard_form_view" model="ir.ui.view">
+        <field name="name">sinerka.teacher.student.wizard.form</field>
+        <field name="model">sinerka.teacher.student.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Manage Students">
+                <sheet>
+                    <field name="student_ids">
+                        <tree editable="bottom">
+                            <field name="name" string="Student Name"/>
+                            <field name="nis" string="NIS"/>
+                            <field name="is_active" string="Is Active" widget="boolean"/>
+                        </tree>
+                    </field>
+                    <footer>
+                        <button string="Update Status" type="object" name="action_update_status" class="oe_highlight"/>
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="sinerka_invoice_tree_view_id" model="ir.ui.view">
+        <field name="name">sinerka.invoice.tree.view.id</field>
+        <field name="model">sinerka.invoice</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="description"/>
+                <field name="total_amount"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="sinerka_invoice_form_view_id" model="ir.ui.view">
+        <field name="name">sinerka.invoice.form.view.id</field>
+        <field name="model">sinerka.invoice</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <header>
+                        <field name="status" widget="statusbar" statusbar_visible="draft,open,paid"/>
+                        <button name="action_mark_as_paid" string="Set to Paid" type="object" class="oe_highlight" attrs="{'invisible' : [('status', '=', 'paid')]}"/>
+                        <button type="object" name="print_sinerka_invoice" string="Print Invoice" class="btn-primary" attrs="{'invisible' : [('status', '!=', 'paid')]}"/>
+                    </header>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="student_id"/>
+                            <field name="nis"/>
+                            <field name="class_ids"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="invoice_date"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Invoice Lines">
+                            <field name="invoice_line_ids">
+                                <tree editable="bottom">
+                                    <field name="description" string="Description" />
+                                    <field name="amount" string="Amount" widget="monetary" options="{'currency_field': 'currency_id'}" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <group>
+                        <field name="total_amount" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

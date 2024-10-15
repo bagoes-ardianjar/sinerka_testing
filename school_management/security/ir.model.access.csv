@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sinerka_teacher,access_sinerka_teacher,model_sinerka_teacher,,1,1,1,1
+access_sinerka_teacher_line,access_sinerka_teacher_line,model_sinerka_teacher_line,,1,1,1,1
+access_sinerka_class,access_sinerka_class,model_sinerka_class,,1,1,1,1
+access_sinerka_class_line,access_sinerka_class_line,model_sinerka_class_line,,1,1,1,1
+access_sinerka_student,access_sinerka_student,model_sinerka_student,,1,1,1,1
+access_sinerka_teacher_student_wizard,access_sinerka_teacher_student_wizard,model_sinerka_teacher_student_wizard,,1,1,1,1
+access_sinerka_invoice,access_sinerka_invoice,model_sinerka_invoice,,1,1,1,1
+access_sinerka_invoice_line,access_sinerka_invoice_line,model_sinerka_invoice_line,,1,1,1,1
+access_sinerka_invoice_scheduler,access_sinerka_invoice_scheduler,model_sinerka_invoice_scheduler,,1,1,1,1

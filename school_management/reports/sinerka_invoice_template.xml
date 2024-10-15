@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sinerka_invoice_template">
+        <t t-call="web.html_container">
+            <div class="page">
+                <body style="margin-top: 70px; margin-bottom: 20px; padding: 40px;">
+                    <table style="width: 100%; border-collapse: collapse; border: none;">
+                        <tr>
+                          <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 20px; font-weight: bold;" colspan="5">SMK PENDA 2 KARANGANYAR</th>
+                        </tr>
+                        <tr>
+                          <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal;" colspan="5">Jl. Lawu, Harjosari, Popongan, Karanganyar, Jawa Tengah</th>
+                        </tr>
+                        <tr>
+                          <th style="border-bottom: 1px solid black; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal;" colspan="5">Telp. 0271 - 494 707 | Web: www.smkpenda2.wordpress.com | Email : penda2kra@yahoo.co.id</th>
+                        </tr>
+                        <tr>
+                          <th style="border-bottom: 1px solid black; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 20px; font-weight: bold;" colspan="5">BUKTI PEMBAYARAN SISWA</th>
+                        </tr>
+                    </table>
+                    <table style="width: 100%; border-collapse: collapse; border: none;">
+                        <t t-foreach="data_header" t-as="header">
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:10%">NO TRANS</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:5%">:</th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:35%"><t t-esc="header.get('name')"/></th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:10%">NIS</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:5%">:</th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:35%"><t t-esc="header.get('nis')"/></th>
+                            </tr>
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:10%">TANGGAL</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:5%">:</th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:35%"><t t-esc="header.get('invoice_date')"/></th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:10%">NAMA SISWA</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:5%">:</th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:35%"><t t-esc="header.get('student_id')"/></th>
+                            </tr>
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:10%">JAM CETAK</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:5%">:</th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:35%"><t t-esc="header.get('current_time')"/></th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:10%">KELAS</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:5%">:</th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:35%"><t t-esc="header.get('class_ids')"/></th>
+                            </tr>
+                        </t>
+                    </table>
+                    <table style="width: 100%; border-collapse: collapse; border: none;">
+                        <tr>
+                            <th style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: bold; width:10%">No.</th>
+                            <th style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: bold; width:60%">Keterangan Pembayaran</th>
+                            <th style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: bold; width:30%">Jumlah (Rp.)</th>
+                        </tr>
+                    </table>
+                    <table style="width: 100%; border-collapse: collapse; border: none;">
+                        <tr t-set="no" t-value="1"/>
+                        <t t-foreach="data_line" t-as="line">
+                            <tr>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:10%"><t t-esc="no"/>.</th>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:60%"><t t-esc="line.get('description')"/></th>
+                                <th style="border: none; text-align: right; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:30%"><t t-esc="'{:,.2f}'.format(line.get('amount'))"/></th>
+                                <t t-set="no" t-value="no + 1"/>
+                            </tr>
+                        </t>
+                    </table>
+                    <table style="width: 100%; border-collapse: collapse; border: none;">
+                        <t t-foreach="data_header" t-as="header">
+                            <tr>
+                                <th style="border-top: 1px solid black; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: bold; width:50%">Terbilang : </th>
+                                <th style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: right; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: bold; width:20%">Grand Total : </th>
+                                <th style="border-top: 1px solid black; border-bottom: 1px solid black; text-align: right; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:20%"><t t-esc="'{:,.2f}'.format(header.get('total_amount'))"/></th>
+                            </tr>
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:50%;font-style: italic;"><t t-esc="header.get('terbilang')"/></th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal;" colspan="2">Karanganyar, <t t-esc="header.get('tanggal_sekarang')"/></th>
+                            </tr>
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:50%;font-style: italic; color:white;">-</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal;" colspan="2">Yang Menerima,</th>
+                            </tr>
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:50%;color:white;">-</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal;color:white;" colspan="2">-</th>
+                            </tr>
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:50%;color:white;">-</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal;color:white;" colspan="2">-</th>
+                            </tr>
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:50%;">Catatan :</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal;color:white;" colspan="2">-</th>
+                            </tr>
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:50%;">- Disimpan sebagai bukti pembayaran yang SAH,</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal;" colspan="2"><t t-esc="header.get('student_id')"/></th>
+                            </tr>
+                            <tr>
+                                <th style="border: none; text-align: left; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal; width:50%;">- Uang yang sudah dibayarkan tidak dapat diminta kembali.</th>
+                                <th style="border: none; text-align: center; font-family: Calibri; vertical-align: middle; font-size: 16px; font-weight: normal;color:white;" colspan="2">-</th>
+                            </tr>
+                        </t>
+                    </table>
+                </body>
+            </div>
+        </t>
+    </template>
+</odoo>

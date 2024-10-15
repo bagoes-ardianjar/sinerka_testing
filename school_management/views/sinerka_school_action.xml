@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <record id="sinerka_teacher_actions_id" model="ir.actions.act_window">
+        <field name="name">Guru</field>
+        <field name="res_model">sinerka.teacher</field>
+    </record>
+    <record id="sinerka_teacher_actions_tree_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="school_management.sinerka_teacher_tree_view_id"/>
+        <field name="act_window_id" ref="school_management.sinerka_teacher_actions_id"/>
+    </record>
+
+    <record id="sinerka_teacher_actions_form_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="school_management.sinerka_teacher_form_view_id"/>
+        <field name="act_window_id" ref="school_management.sinerka_teacher_actions_id"/>
+    </record>
+
+    <record id="sinerka_student_actions_id" model="ir.actions.act_window">
+        <field name="name">Siswa</field>
+        <field name="res_model">sinerka.student</field>
+    </record>
+    <record id="sinerka_student_actions_tree_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="school_management.sinerka_student_tree_view_id"/>
+        <field name="act_window_id" ref="school_management.sinerka_student_actions_id"/>
+    </record>
+
+    <record id="sinerka_student_actions_form_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="school_management.sinerka_student_form_view_id"/>
+        <field name="act_window_id" ref="school_management.sinerka_student_actions_id"/>
+    </record>
+
+    <record id="sinerka_class_actions_id" model="ir.actions.act_window">
+        <field name="name">Kelas</field>
+        <field name="res_model">sinerka.class</field>
+    </record>
+    <record id="sinerka_class_actions_tree_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="school_management.sinerka_class_tree_view_id"/>
+        <field name="act_window_id" ref="school_management.sinerka_class_actions_id"/>
+    </record>
+
+    <record id="sinerka_class_actions_form_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="school_management.sinerka_class_form_view_id"/>
+        <field name="act_window_id" ref="school_management.sinerka_class_actions_id"/>
+    </record>
+
+    <record id="action_sinerka_teacher_student_wizard" model="ir.actions.act_window">
+        <field name="name">Manage Students</field>
+        <field name="res_model">sinerka.teacher.student.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <record id="sinerka_invoice_actions_id" model="ir.actions.act_window">
+        <field name="name">Invoice</field>
+        <field name="res_model">sinerka.invoice</field>
+    </record>
+    <record id="sinerka_invoice_actions_tree_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="school_management.sinerka_invoice_tree_view_id"/>
+        <field name="act_window_id" ref="school_management.sinerka_invoice_actions_id"/>
+    </record>
+
+    <record id="sinerka_invoice_actions_form_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="school_management.sinerka_invoice_form_view_id"/>
+        <field name="act_window_id" ref="school_management.sinerka_invoice_actions_id"/>
+    </record>
+
+</odoo>
